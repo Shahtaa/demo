@@ -21,8 +21,12 @@ public class HelloListController {
     }
 
     @PostMapping("/")
-    public String addContent(@RequestParam String content) {
-        ListContent listContent = new ListContent(content.trim());
+    public String addContent(
+            @RequestParam String link,
+            @RequestParam String otsikko,
+            @RequestParam String kuvaus,
+            @RequestParam String avainsana) {
+        ListContent listContent = new ListContent(link, otsikko, kuvaus, avainsana);
         listContentRepository.save(listContent);
         return "redirect:/list";
     }

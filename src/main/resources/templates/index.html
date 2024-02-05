@@ -2,27 +2,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Hello List!</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   </head>
 
   <body>
     <h1>Hello List!</h1>
 
-    <!-- Displaying content from the database -->
-    <ul>
-      <li th:each="item: ${list}" th:text="${item.content}"></li>
-    </ul>
+    <!-- Displaying content from the database in a table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Otsikko</th>
+          <th>Linkki</th>
+          <th>Avainsana</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="item: ${list}">
+          <td th:text="${item.id}"></td>
+          <td th:text="${item.otsikko}"></td>
+          <td>
+            <a
+              th:href="${item.link}"
+              target="_blank"
+              th:text="${item.kuvaus}"
+            ></a>
+          </td>
+          <td th:text="${item.avainsana}"></td>
+          <td>
+            <form
+              th:action="@{'/remove/' + ${item.id}}"
+              method="post"
+              style="display: inline"
+            >
+              <button type="submit">Remove</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
     <!-- Form for adding content to the list -->
     <h2>Add content to list</h2>
 
     <form th:action="@{/}" method="POST">
-      <input type="text" name="content" />
+      <input type="text" name="link" placeholder="Link" />
+      <input type="text" name="otsikko" placeholder="Otsikko" />
+      <input type="text" name="kuvaus" placeholder="Kuvaus" />
+      <input type="text" name="avainsana" placeholder="Avainsana" />
       <input type="submit" value="Click!" />
-    </form>
-
-    <!-- Button to remove all items -->
-    <form th:action="@{/remove/all}" method="post">
-      <button type="submit">Remove All Items</button>
     </form>
   </body>
 </html>
