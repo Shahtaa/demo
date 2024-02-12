@@ -39,7 +39,7 @@ public class HelloListController {
     @PostMapping("/remove/{id}")
     public String removeContent(@PathVariable Long id) {
         listContentRepository.deleteById(id);
-        return "redirect:/list";
+        return "redirect:/admin";
     }
 
     @PostMapping("/remove/all")
