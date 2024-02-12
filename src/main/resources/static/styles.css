@@ -1,22 +1,42 @@
 /* styles.css */
 
+/* Style the table */
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin-top: 20px;
+  border-collapse: collapse;
 }
 
-th,
-td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
+/* Style table header */
 th {
-  background-color: #f2f2f2;
+  background-color: lightseagreen;
+  color: #333;
+  font-weight: bold;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-form {
-  display: inline;
+/* Style table rows */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Style table data cells */
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the action buttons */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
 }
