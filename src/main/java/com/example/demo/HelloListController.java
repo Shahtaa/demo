@@ -14,10 +14,15 @@ public class HelloListController {
     private ListContentRepository listContentRepository;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home() {
+        return "index";
+    }
+
+    @GetMapping("/admin")
+    public String admin(Model model) {
         List<ListContent> listContents = listContentRepository.findAll();
         model.addAttribute("list", listContents);
-        return "index";
+        return "admin";
     }
 
     @PostMapping("/")
@@ -28,7 +33,7 @@ public class HelloListController {
             @RequestParam String avainsana) {
         ListContent listContent = new ListContent(link, otsikko, kuvaus, avainsana);
         listContentRepository.save(listContent);
-        return "redirect:/list";
+        return "redirect:/admin";
     }
 
     @PostMapping("/remove/{id}")

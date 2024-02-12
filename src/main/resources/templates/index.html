@@ -1,58 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
   <head>
-    <title>Hello List!</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
   </head>
-
   <body>
-    <h1>Hello List!</h1>
-
-    <!-- Displaying content from the database in a table -->
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Otsikko</th>
-          <th>Linkki</th>
-          <th>Avainsana</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="item: ${list}">
-          <td th:text="${item.id}"></td>
-          <td th:text="${item.otsikko}"></td>
-          <td>
-            <a
-              th:href="${item.link}"
-              target="_blank"
-              th:text="${item.kuvaus}"
-            ></a>
-          </td>
-          <td th:text="${item.avainsana}"></td>
-          <td>
-            <form
-              th:action="@{'/remove/' + ${item.id}}"
-              method="post"
-              style="display: inline"
-            >
-              <button type="submit">Remove</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Form for adding content to the list -->
-    <h2>Add content to list</h2>
-
-    <form th:action="@{/}" method="POST">
-      <input type="text" name="link" placeholder="Link" />
-      <input type="text" name="otsikko" placeholder="Otsikko" />
-      <input type="text" name="kuvaus" placeholder="Kuvaus" />
-      <input type="text" name="avainsana" placeholder="Avainsana" />
-      <input type="submit" value="Click!" />
-    </form>
+    <h1>Welcome to the Index Page</h1>
+    <p>This is a basic index page.</p>
+    <ul>
+      <li><a href="/admin">Go to Admin Page</a></li>
+      <li><a href="/list">Go to List Page</a></li>
+    </ul>
   </body>
 </html>
