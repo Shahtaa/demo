@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Hello List!</title>
-    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+    <title>Link List!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{styles.css}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <h1>Hello List!</h1>
+    <h1>Link List!</h1>
 
     <!-- Displaying content from the database in a table -->
     <table>

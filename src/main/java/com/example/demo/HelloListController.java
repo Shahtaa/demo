@@ -31,7 +31,11 @@ public class HelloListController {
             @RequestParam String otsikko,
             @RequestParam String kuvaus,
             @RequestParam String avainsana) {
-        ListContent listContent = new ListContent(link, otsikko, kuvaus, avainsana);
+        ListContent listContent = new ListContent();
+        listContent.setLink(link);
+        listContent.setOtsikko(otsikko);
+        listContent.setKuvaus(kuvaus);
+        listContent.setAvainsana(avainsana);
         listContentRepository.save(listContent);
         return "redirect:/admin";
     }

@@ -4,8 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ListContent {
 
     @Id
@@ -17,57 +23,5 @@ public class ListContent {
     private String kuvaus;
     private String avainsana;
 
-    // Constructors
-
-    public ListContent() {
-    }
-
-    public ListContent(String link, String otsikko, String kuvaus, String avainsana) {
-        this.link = link;
-        this.otsikko = otsikko;
-        this.kuvaus = kuvaus;
-        this.avainsana = avainsana;
-    }
-
-    // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getOtsikko() {
-        return otsikko;
-    }
-
-    public void setOtsikko(String otsikko) {
-        this.otsikko = otsikko;
-    }
-
-    public String getKuvaus() {
-        return kuvaus;
-    }
-
-    public void setKuvaus(String kuvaus) {
-        this.kuvaus = kuvaus;
-    }
-
-    public String getAvainsana() {
-        return avainsana;
-    }
-
-    public void setAvainsana(String avainsana) {
-        this.avainsana = avainsana;
-    }
+    // No need for explicit constructors, getters, and setters with Lombok
 }
